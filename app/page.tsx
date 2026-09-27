@@ -39,7 +39,7 @@ import {
 } from "../components/ModelSettingsModal";
 import { RefineCanvas } from "../components/RefineCanvas";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
 
 type ViewMode = "slider" | "cutout" | "sideBySide";
 
@@ -429,13 +429,13 @@ export default function HomePage() {
             <div className="flex items-center gap-3">
               <AlertCircle className="h-5 w-5 text-amber-600 shrink-0" />
               <div className="text-xs text-amber-900 font-medium">
-                <strong>Servidor local aguardando conexão:</strong> O backend FastAPI não respondeu na porta 8000.
-                Inicie com o comando <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-950 font-bold">iniciar.bat</code>.
+                <strong>Serviço aguardando conexão:</strong> O backend FastAPI não respondeu no endereço{" "}
+                <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-950 font-bold">{API_BASE}</code>.
               </div>
             </div>
             <button
               onClick={checkBackendHealth}
-              className="px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs transition-colors shrink-0"
+              className="px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs transition-colors shrink-0 cursor-pointer"
             >
               Reconectar
             </button>
