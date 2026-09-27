@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1422" />
+      <stop offset="60%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#04060a" />
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)" />
+    </linearGradient>
+
+    <!-- Laser Beam Gradient -->
+    <linearGradient id="laserGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <!-- Red Beacon Radial Glow -->
+    <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff3b30" stop-opacity="1" />
+      <stop offset="40%" stop-color="#ff3b30" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ff3b30" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Transparency Checkerboard Pattern -->
+    <pattern id="checkerPattern" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#cbd5e1" fill-opacity="0.9" />
+      <rect x="8" width="8" height="8" fill="#94a3b8" fill-opacity="0.8" />
+      <rect y="8" width="8" height="8" fill="#94a3b8" fill-opacity="0.8" />
+      <rect x="8" y="8" width="8" height="8" fill="#cbd5e1" fill-opacity="0.9" />
+    </pattern>
+
+    <!-- Clipping path for upper L (Foreground) -->
+    <clipPath id="upperCutClip">
+      <polygon points="0,0 512,0 512,210 282,210 100,336 0,336" />
+    </clipPath>
+
+    <!-- Clipping path for lower L (Transparent Background) -->
+    <clipPath id="lowerCutClip">
+      <polygon points="0,512 512,512 512,226 290,226 100,352 0,352" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="url(#bg)" stroke="url(#borderGrad)" stroke-width="4" />
+
+  <!-- Ambient Light Aura -->
+  <circle cx="210" cy="210" r="160" fill="#6366f1" fill-opacity="0.12" filter="blur(40px)" />
+
+  <!-- The "L" Monogram - Lower Part (Checkerboard Cutout) -->
+  <g clip-path="url(#lowerCutClip)">
+    <path d="M 150 105 H 222 V 315 H 362 V 385 H 150 Z" rx="14" fill="url(#checkerPattern)" />
+    <!-- Violet Frosted Glass Tint -->
+    <path d="M 150 105 H 222 V 315 H 362 V 385 H 150 Z" fill="#6366f1" fill-opacity="0.15" />
+    <!-- Outer Rim -->
+    <path d="M 150 105 H 222 V 315 H 362 V 385 H 150 Z" stroke="#ffffff" stroke-width="3" stroke-opacity="0.4" fill="none" />
+  </g>
+
+  <!-- The "L" Monogram - Upper Part (Pure Luminous Solid) -->
+  <g clip-path="url(#upperCutClip)">
+    <path d="M 150 105 C 150 97 157 90 165 90 H 207 C 215 90 222 97 222 105 V 385 H 150 Z" fill="#ffffff" />
+  </g>
+
+  <!-- Precision Laser Slice -->
+  <line x1="100" y1="340" x2="286" y2="216" stroke="url(#laserGrad)" stroke-width="5" stroke-linecap="round" />
+  
+  <!-- Optical Sparkle -->
+  <path d="M 284 216 Q 284 228 296 228 Q 284 228 284 240 Q 284 228 272 228 Q 284 228 284 216 Z" fill="#ffffff" />
+  <circle cx="284" cy="228" r="3" fill="#ffffff" />
+
+  <!-- Signature Lumino Red Beacon (#FF3B30) -->
+  <circle cx="358" cy="125" r="48" fill="url(#redGlow)" />
+  <circle cx="358" cy="125" r="18" fill="#ff3b30" />
+  <circle cx="358" cy="125" r="6" fill="#ffffff" opacity="0.9" />
+</svg>
