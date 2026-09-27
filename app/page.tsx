@@ -229,7 +229,7 @@ export default function HomePage() {
       } else if (name.toLowerCase().includes("produto")) {
         handleFileSelected(file, "isnet-general-use");
       } else {
-        handleFileSelected(file, "birefnet-general");
+        handleFileSelected(file, "u2net_human_seg");
       }
     } catch {
       setErrorMsg("Não foi possível carregar a imagem de exemplo.");
@@ -574,9 +574,9 @@ export default function HomePage() {
                     </button>
 
                     <button
-                      onClick={() => handleQuickModelSwitch("birefnet-general")}
+                      onClick={() => handleQuickModelSwitch("u2net_human_seg")}
                       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
-                        modelConfig.model === "birefnet-general"
+                        modelConfig.model === "u2net_human_seg"
                           ? "bg-slate-950 text-white shadow-sm font-semibold"
                           : "text-slate-600 hover:text-slate-950"
                       }`}

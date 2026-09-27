@@ -27,10 +27,10 @@ export const AVAILABLE_MODELS = [
     recommendedFor: "anime",
   },
   {
-    id: "birefnet-general",
-    name: "BiRefNet General (Ultra HD)",
-    badge: "Fios Finos & Fotos Reais",
-    desc: "Estado da arte mundial para fotos reais. Preserva fios soltos de cabelo, peles, tecidos translúcidos e reflexos em alta resolução.",
+    id: "u2net_human_seg",
+    name: "U2Net Human Seg (Fotos Reais & Retratos)",
+    badge: "Fios Finos & Retratos Reais",
+    desc: "Modelo especialista em retratos humanos, fotos reais e pessoas. Preserva cabelos soltos, roupas e bordas complexas com extrema estabilidade.",
     recommendedFor: "photo",
   },
   {
@@ -115,7 +115,7 @@ export function ModelSettingsModal({
                       className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                         item.id === "isnet-anime"
                           ? "bg-red-50 text-red-600 border-red-200"
-                          : item.id === "birefnet-general"
+                          : item.id === "u2net_human_seg"
                           ? "bg-slate-100 text-slate-800 border-slate-200"
                           : "bg-slate-100 text-slate-600 border-slate-200"
                       }`}
