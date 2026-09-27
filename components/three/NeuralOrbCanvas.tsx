@@ -31,8 +31,9 @@ export function NeuralOrbCanvas({
       antialias: true,
       powerPreference: "high-performance",
     });
-    renderer.setSize(size, size);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const canvasSize = Math.max(32, size);
+    renderer.setSize(canvasSize, canvasSize);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.2;
     mount.appendChild(renderer.domElement);
@@ -93,6 +94,7 @@ export function NeuralOrbCanvas({
     };
     const handleMouseMove = (e: MouseEvent) => {
       const rect = mount.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
       const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
       targetRotX = y * 1.5;
@@ -103,11 +105,13 @@ export function NeuralOrbCanvas({
     mount.addEventListener("mouseleave", handleMouseLeave);
     mount.addEventListener("mousemove", handleMouseMove);
 
-    const clock = new THREE.Clock();
+    let lastTime = performance.now();
 
     const animate = () => {
       animId = requestAnimationFrame(animate);
-      const delta = clock.getDelta();
+      const now = performance.now();
+      const delta = Math.min((now - lastTime) / 1000, 0.1);
+      lastTime = now;
 
       if (isHovered) {
         mesh.rotation.x += (targetRotX - mesh.rotation.x) * 0.1;
