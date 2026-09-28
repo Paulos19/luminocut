@@ -38,7 +38,7 @@ export function SampleGallery({ onSelectSample, disabled }: SampleGalleryProps) 
         </div>
         <div>
           <p className="text-xs font-bold text-slate-900 tracking-tight">
-            Experimente em 1-clique com casos reais:
+            Experimente em 1 clique com casos reais:
           </p>
           <p className="text-[10px] text-slate-500 hidden sm:block">
             Demonstração com bordas complexas, capuzes e cabelos finos
