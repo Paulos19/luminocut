@@ -468,7 +468,7 @@ export default function HomePage() {
                   <span>Estúdio de Recorte</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-slate-950 mt-1">
-                  Carregue Sua Foto
+                  Carregue sua Imagem
                 </h2>
               </div>
               <p className="text-xs text-slate-500 max-w-sm leading-relaxed">

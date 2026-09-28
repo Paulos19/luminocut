@@ -56,7 +56,6 @@ export function EditorialNavbar({
           >
             Exemplos Reais
           </button>
-          <span className="text-slate-400">Alta Resolução Nativa</span>
         </div>
 
         {/* Ações e Botão Principal */}
